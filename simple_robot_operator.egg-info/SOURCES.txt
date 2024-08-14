@@ -1,0 +1,17 @@
+package.xml
+setup.cfg
+setup.py
+resource/simple_robot_operator
+simple_robot_operator/__init__.py
+simple_robot_operator/main.py
+simple_robot_operator/operator.py
+simple_robot_operator.egg-info/PKG-INFO
+simple_robot_operator.egg-info/SOURCES.txt
+simple_robot_operator.egg-info/dependency_links.txt
+simple_robot_operator.egg-info/entry_points.txt
+simple_robot_operator.egg-info/requires.txt
+simple_robot_operator.egg-info/top_level.txt
+simple_robot_operator.egg-info/zip-safe
+test/test_copyright.py
+test/test_flake8.py
+test/test_pep257.py
