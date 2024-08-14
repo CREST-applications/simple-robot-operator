@@ -4,7 +4,7 @@
   <name>simple_robot_operator</name>
   <version>0.0.0</version>
   <description>TODO: Package description</description>
-  <maintainer email="jme.co.jp@gmail.com">root</maintainer>
+  <maintainer email="al21057@shibaura-it.ac.jp">root</maintainer>
   <license>TODO: License declaration</license>
 
   <test_depend>ament_copyright</test_depend>
