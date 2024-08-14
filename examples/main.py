@@ -1,5 +1,5 @@
 import rclpy
-from simple_robot_operator import SimpleOperator
+from simple_robot_operator.simple_robot_operator.operator import SimpleOperator
 
 
 def main():

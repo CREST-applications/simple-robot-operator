@@ -33,10 +33,30 @@ class SimpleOperator(Node):
         self.__odom = twist
         print(f"Odom: {self.__odom}")
 
+    def increase_speed(self, speed: float):
+        speed = self.__odom.twist.twist.linear.x + speed
+        self.__publisher.publish(speed)
+        self._logger.info(f"Increased speed to: {speed}")
+    
+    def set_speed(self, speed: float):
+        self.__twist.linear.x = speed
+        self.__publisher.publish(self.__twist)
+        self._logger.info(f"Set speed to: {speed}")
+
+    def enhance_rotation(self, angle: int):
+        self.__twist.angular.z = self.__odom.twist.twist.angular.z + angle
+        self.__publisher.publish(self.__twist)
+        self._logger.info(f"Enhanced rotation to: {angle}")
+        
+    def set_rotation(self, angle: int):
+        self.__twist.angular.z = angle
+        self.__publisher.publish(self.__twist)
+        self._logger.info(f"Set rotation to: {angle}")
+
     def forward(self, speed: float, duration: Optional[float] = None):
         """forward
 
-        Args:
+        Args:i
             speed (float): Speed of the robot
             duration (Optional[float], optional): Duration of the movement. Defaults to None.
         """
