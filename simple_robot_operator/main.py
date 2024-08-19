@@ -9,7 +9,7 @@ def main():
         operator = SimpleOperator("simple_operator")
         operator.forward(-0.01, 3.0)
         operator.increase_speed(0.05)
-        operator.set_speed(0.1)
+        operator.set_forward(0.1)
         operator.forward(0.01, 3.0)
         # operator.rotate(360 * 3, 3.0 * 3)
 
