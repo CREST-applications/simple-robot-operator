@@ -1,3 +1,0 @@
-[console_scripts]
-simple_robot_operator = simple_robot_operator.main:main
-
