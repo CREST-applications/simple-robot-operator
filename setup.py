@@ -19,7 +19,7 @@ setup(
     tests_require=["pytest"],
     entry_points={
         "console_scripts": [
-            "simple_robot_operator = simple_robot_operator.main:main",
+            "example = simple_robot_operator.example:main",
         ],
     },
 )
