@@ -1,1 +1,1 @@
-from .operator import SimpleOperator
+from .operator import SimpleOperator, Angle

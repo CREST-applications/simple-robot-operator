@@ -29,8 +29,9 @@ class SimpleOperator(Node):
         self.__pub = self.create_publisher(Twist, "/cmd_vel", 10)
 
         # Create a Subscriber for Odometry
-        self.__odom: Odometry
+        self.__odom: Odometry = None
         self.create_subscription(Odometry, "/odom", self.__odom_callback, 10)
+        self.__wait_for_odom()
 
         # Twist
         self.__twist = Twist()
@@ -58,30 +59,16 @@ class SimpleOperator(Node):
         return self.__odom
 
     @property
-    def pos_x(self) -> float:
-        """pos_x
+    def pos(self) -> tuple[float, float]:
+        """pos
 
-        X position of the robot in the world frame.
-        The value based on the initial position of the robot.
-
-        Returns:
-            float: X position of the robot in meters
-        """
-
-        return self.__odom.pose.pose.position.x
-
-    @property
-    def pos_y(self) -> float:
-        """pos_y
-
-        Y position of the robot in the world frame.
-        The value based on the initial position of the robot.
+        Position of the robot in the world frame.
 
         Returns:
-            float: Y position of the robot in meters
+            tuple[float, float]: X and Y position of the robot in meters
         """
 
-        return self.__odom.pose.pose.position.y
+        return (self.__odom.pose.pose.position.x, self.__odom.pose.pose.position.y)
 
     @property
     def speed(self) -> float:
@@ -180,6 +167,7 @@ class SimpleOperator(Node):
         """forward
 
         You can move the robot forward by providing the distance and duration of the movement.
+        When the movement is finished, the robot will automatically stop.
 
         Args:
             distance (float): Distance to move forward in meters
@@ -202,6 +190,7 @@ class SimpleOperator(Node):
         """rotate_by
 
         You can rotate the robot by providing the degree and duration of the rotation.
+        When the movement is finished, the robot will automatically stop.
 
         Args:
             degree (int): Degree to rotate
@@ -241,3 +230,10 @@ class SimpleOperator(Node):
             return -0.2
 
         return speed
+
+    def __wait_for_odom(self):
+        self._logger.info("Waiting for /odom topic")
+        while not self.__odom:
+            time.sleep(1)
+
+        self._logger.info("Received /odom topic. Ready to move the robot")
