@@ -4,14 +4,20 @@ from nav_msgs.msg import Odometry
 from geometry_msgs.msg import Twist
 from enum import IntEnum
 import math
-import threading
+# import threading
 import rclpy
 
 
 class Angle(IntEnum):
-    LEFT = 90
-    RIGHT = -90
+    LEFT = -90
+    RIGHT = 90
     INVERSE = 180
+
+
+class Position:
+    def __init__(x: float, y: float)
+        self.x = x
+        self.y = y
 
 
 class SimpleOperator(Node):
@@ -34,9 +40,12 @@ class SimpleOperator(Node):
 
         # Twist
         self.__twist = Twist()
+        
+        # initial position
+        self.__pos_init: Position = None
 
         # Thread for subscribing to Odometry
-        threading.Thread(target=rclpy.spin, args=(self,), daemon=True).start()
+        # threading.Thread(target=rclpy.spin, args=(self,), daemon=True).start()
 
         # Wait for receiving the Odometry message
         self.__wait_for_odom()
@@ -61,16 +70,24 @@ class SimpleOperator(Node):
         return self.__odom
 
     @property
-    def pos(self) -> tuple[float, float]:
+    def pos(self) -> Position:
         """pos
 
         Position of the robot in the world frame.
 
         Returns:
-            tuple[float, float]: X and Y position of the robot in meters
+            Position: position of the robot in meters
         """
 
-        return (self.__odom.pose.pose.position.x, self.__odom.pose.pose.position.y)
+        # return (
+        #     self.__pos_init.x - self.__odom.pose.pose.position.x, 
+        #     self.__pos_init.y - self.__odom.pose.pose.position.y
+        # )
+        
+        return Position(
+            self.__pos_init.x - self.__odom.pose.pose.position.x,
+            self.__pos_init.y - self.__odom.pose.pose.position.y,
+        )
 
     @property
     def speed(self) -> float:
@@ -235,7 +252,11 @@ class SimpleOperator(Node):
 
     def __wait_for_odom(self):
         self._logger.info("Waiting for /odom topic")
+
         while not self.__odom:
             time.sleep(1)
+            rclpy.spin_once(self)
 
+        pos = self.pos
+        self.__pos_init = Position(pos.x, pos.y)
         self._logger.info("Received /odom topic. Ready to move the robot")
