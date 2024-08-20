@@ -31,13 +31,15 @@ class SimpleOperator(Node):
         # Create a Subscriber for Odometry
         self.__odom: Odometry = None
         self.create_subscription(Odometry, "/odom", self.__odom_callback, 10)
-        self.__wait_for_odom()
 
         # Twist
         self.__twist = Twist()
 
         # Thread for subscribing to Odometry
         threading.Thread(target=rclpy.spin, args=(self,), daemon=True).start()
+
+        # Wait for receiving the Odometry message
+        self.__wait_for_odom()
 
     def __odom_callback(self, odom: Odometry):
         self.__odom = odom

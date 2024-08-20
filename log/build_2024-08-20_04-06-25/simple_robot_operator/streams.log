@@ -1,0 +1,40 @@
+[0.216s] Invoking command in '/root/ros2_ws/src/simple_robot_operator': PYTHONPATH=/root/ros2_ws/src/simple_robot_operator/build/simple_robot_operator/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/ros2_ws/src/simple_robot_operator/install/simple_robot_operator/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base build/simple_robot_operator build --build-base /root/ros2_ws/src/simple_robot_operator/build/simple_robot_operator/build install --record /root/ros2_ws/src/simple_robot_operator/build/simple_robot_operator/install.log --single-version-externally-managed install_data
+[0.294s] running egg_info
+[0.294s] creating build/simple_robot_operator/simple_robot_operator.egg-info
+[0.294s] writing build/simple_robot_operator/simple_robot_operator.egg-info/PKG-INFO
+[0.295s] writing dependency_links to build/simple_robot_operator/simple_robot_operator.egg-info/dependency_links.txt
+[0.295s] writing entry points to build/simple_robot_operator/simple_robot_operator.egg-info/entry_points.txt
+[0.295s] writing requirements to build/simple_robot_operator/simple_robot_operator.egg-info/requires.txt
+[0.295s] writing top-level names to build/simple_robot_operator/simple_robot_operator.egg-info/top_level.txt
+[0.295s] writing manifest file 'build/simple_robot_operator/simple_robot_operator.egg-info/SOURCES.txt'
+[0.295s] reading manifest file 'build/simple_robot_operator/simple_robot_operator.egg-info/SOURCES.txt'
+[0.296s] writing manifest file 'build/simple_robot_operator/simple_robot_operator.egg-info/SOURCES.txt'
+[0.296s] running build
+[0.296s] running build_py
+[0.296s] creating /root/ros2_ws/src/simple_robot_operator/build/simple_robot_operator/build
+[0.296s] creating /root/ros2_ws/src/simple_robot_operator/build/simple_robot_operator/build/lib
+[0.296s] creating /root/ros2_ws/src/simple_robot_operator/build/simple_robot_operator/build/lib/simple_robot_operator
+[0.296s] copying simple_robot_operator/example.py -> /root/ros2_ws/src/simple_robot_operator/build/simple_robot_operator/build/lib/simple_robot_operator
+[0.296s] copying simple_robot_operator/operator.py -> /root/ros2_ws/src/simple_robot_operator/build/simple_robot_operator/build/lib/simple_robot_operator
+[0.296s] copying simple_robot_operator/__init__.py -> /root/ros2_ws/src/simple_robot_operator/build/simple_robot_operator/build/lib/simple_robot_operator
+[0.296s] running install
+[0.296s] running install_lib
+[0.297s] creating /root/ros2_ws/src/simple_robot_operator/install/simple_robot_operator/lib/python3.10/site-packages/simple_robot_operator
+[0.297s] copying /root/ros2_ws/src/simple_robot_operator/build/simple_robot_operator/build/lib/simple_robot_operator/example.py -> /root/ros2_ws/src/simple_robot_operator/install/simple_robot_operator/lib/python3.10/site-packages/simple_robot_operator
+[0.297s] copying /root/ros2_ws/src/simple_robot_operator/build/simple_robot_operator/build/lib/simple_robot_operator/operator.py -> /root/ros2_ws/src/simple_robot_operator/install/simple_robot_operator/lib/python3.10/site-packages/simple_robot_operator
+[0.297s] copying /root/ros2_ws/src/simple_robot_operator/build/simple_robot_operator/build/lib/simple_robot_operator/__init__.py -> /root/ros2_ws/src/simple_robot_operator/install/simple_robot_operator/lib/python3.10/site-packages/simple_robot_operator
+[0.297s] byte-compiling /root/ros2_ws/src/simple_robot_operator/install/simple_robot_operator/lib/python3.10/site-packages/simple_robot_operator/example.py to example.cpython-310.pyc
+[0.297s] byte-compiling /root/ros2_ws/src/simple_robot_operator/install/simple_robot_operator/lib/python3.10/site-packages/simple_robot_operator/operator.py to operator.cpython-310.pyc
+[0.298s] byte-compiling /root/ros2_ws/src/simple_robot_operator/install/simple_robot_operator/lib/python3.10/site-packages/simple_robot_operator/__init__.py to __init__.cpython-310.pyc
+[0.298s] running install_data
+[0.298s] creating /root/ros2_ws/src/simple_robot_operator/install/simple_robot_operator/share/ament_index
+[0.298s] creating /root/ros2_ws/src/simple_robot_operator/install/simple_robot_operator/share/ament_index/resource_index
+[0.298s] creating /root/ros2_ws/src/simple_robot_operator/install/simple_robot_operator/share/ament_index/resource_index/packages
+[0.298s] copying resource/simple_robot_operator -> /root/ros2_ws/src/simple_robot_operator/install/simple_robot_operator/share/ament_index/resource_index/packages
+[0.298s] copying package.xml -> /root/ros2_ws/src/simple_robot_operator/install/simple_robot_operator/share/simple_robot_operator
+[0.298s] running install_egg_info
+[0.299s] Copying build/simple_robot_operator/simple_robot_operator.egg-info to /root/ros2_ws/src/simple_robot_operator/install/simple_robot_operator/lib/python3.10/site-packages/simple_robot_operator-0.0.0-py3.10.egg-info
+[0.299s] running install_scripts
+[0.309s] Installing example script to /root/ros2_ws/src/simple_robot_operator/install/simple_robot_operator/lib/simple_robot_opetator
+[0.309s] writing list of installed files to '/root/ros2_ws/src/simple_robot_operator/build/simple_robot_operator/install.log'
+[0.318s] Invoked command in '/root/ros2_ws/src/simple_robot_operator' returned '0': PYTHONPATH=/root/ros2_ws/src/simple_robot_operator/build/simple_robot_operator/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/ros2_ws/src/simple_robot_operator/install/simple_robot_operator/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base build/simple_robot_operator build --build-base /root/ros2_ws/src/simple_robot_operator/build/simple_robot_operator/build install --record /root/ros2_ws/src/simple_robot_operator/build/simple_robot_operator/install.log --single-version-externally-managed install_data

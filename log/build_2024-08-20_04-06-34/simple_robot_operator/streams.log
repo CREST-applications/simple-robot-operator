@@ -1,0 +1,21 @@
+[0.219s] Invoking command in '/root/ros2_ws/src/simple_robot_operator/build/simple_robot_operator': PYTHONPATH=/root/ros2_ws/src/simple_robot_operator/build/simple_robot_operator/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/ros2_ws/src/simple_robot_operator/install/simple_robot_operator/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /root/ros2_ws/src/simple_robot_operator/build/simple_robot_operator/build --no-deps symlink_data --force
+[0.310s] running develop
+[0.310s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+[0.310s]   warnings.warn(
+[0.344s] running egg_info
+[0.345s] writing simple_robot_operator.egg-info/PKG-INFO
+[0.345s] writing dependency_links to simple_robot_operator.egg-info/dependency_links.txt
+[0.345s] writing entry points to simple_robot_operator.egg-info/entry_points.txt
+[0.345s] writing requirements to simple_robot_operator.egg-info/requires.txt
+[0.345s] writing top-level names to simple_robot_operator.egg-info/top_level.txt
+[0.345s] reading manifest file 'simple_robot_operator.egg-info/SOURCES.txt'
+[0.346s] writing manifest file 'simple_robot_operator.egg-info/SOURCES.txt'
+[0.346s] running build_ext
+[0.347s] Creating /root/ros2_ws/src/simple_robot_operator/install/simple_robot_operator/lib/python3.10/site-packages/simple-robot-operator.egg-link (link to .)
+[0.347s] Installing example script to /root/ros2_ws/src/simple_robot_operator/install/simple_robot_operator/lib/simple_robot_operator
+[0.347s] 
+[0.347s] Installed /root/ros2_ws/src/simple_robot_operator/build/simple_robot_operator
+[0.347s] running symlink_data
+[0.347s] symbolically linking /root/ros2_ws/src/simple_robot_operator/build/simple_robot_operator/resource/simple_robot_operator -> /root/ros2_ws/src/simple_robot_operator/install/simple_robot_operator/share/ament_index/resource_index/packages
+[0.347s] symbolically linking /root/ros2_ws/src/simple_robot_operator/build/simple_robot_operator/package.xml -> /root/ros2_ws/src/simple_robot_operator/install/simple_robot_operator/share/simple_robot_operator
+[0.361s] Invoked command in '/root/ros2_ws/src/simple_robot_operator/build/simple_robot_operator' returned '0': PYTHONPATH=/root/ros2_ws/src/simple_robot_operator/build/simple_robot_operator/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/ros2_ws/src/simple_robot_operator/install/simple_robot_operator/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /root/ros2_ws/src/simple_robot_operator/build/simple_robot_operator/build --no-deps symlink_data --force
