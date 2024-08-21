@@ -123,6 +123,7 @@ class SimpleOperator(Node):
         speed = self.__validate_speed(speed)
         self.__twist.linear.x = float(speed)
 
+        print(self.__twist)
         self.__pub.publish(self.__twist)
         self._logger.info(f"Set speed to: {speed} m/s")
 

@@ -15,6 +15,7 @@ class SampleOperator(SimpleOperator):
         self.forward(0.2, 5.0)
         time.sleep(3)
         self.forward(-0.2, 5.0)
+        time.sleep(3)
 
 def main():
     try:
