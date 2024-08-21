@@ -194,12 +194,14 @@ class SimpleOperator(Node):
 
         speed = distance / duration
 
-        start_x, start_y = self.pos
+        start_pos = self.pos
 
         while True:
             self.set_speed(speed)
-            x, y = self.pos
-            distance_moved = math.sqrt((x - start_x) ** 2 + (y - start_y) ** 2)
+            current = self.pos
+            distance_moved = math.sqrt(
+                (current.x - start_pos.x) ** 2 + (current.y - start_pos.y) ** 2
+            )
 
             if distance_moved >= distance:
                 break
@@ -260,6 +262,9 @@ class SimpleOperator(Node):
             time.sleep(1)
             rclpy.spin_once(self)
 
-        pos = self.pos
-        self.__pos_init = Position(pos.x, pos.y)
+        self.__pos_init = Position(
+            self.__odom.pose.pose.position.x,
+            self.__odom.pose.pose.position.y,
+        )
+
         self._logger.info("Received /odom topic. Ready to move the robot")

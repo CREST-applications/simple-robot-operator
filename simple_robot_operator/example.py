@@ -1,13 +1,17 @@
 import rclpy
 import time
 from simple_robot_operator import SimpleOperator, Angle
+import threading
 
 
 class SampleOperator(SimpleOperator):
     def __init__(self, name: str = "operator_node"):
-        super().__init__("operator_node")
+        super().__init__(name)
+
+        threading.Thread(target=self.operate, daemon=True).start()
 
     def operate(self):
+        time.sleep(3)
         self.forward(0.2, 5.0)
         time.sleep(3)
         self.forward(-0.2, 5.0)
