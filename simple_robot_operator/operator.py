@@ -238,6 +238,8 @@ class SimpleOperator(Node):
         self.__twist.angular.z = 0.0
 
         self.__pub.publish(self.__twist)
+        
+    # others
 
     def __validate_speed(self, speed: float) -> float:
         if 0.2 < speed:
