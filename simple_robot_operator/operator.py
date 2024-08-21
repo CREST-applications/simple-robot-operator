@@ -4,6 +4,7 @@ from nav_msgs.msg import Odometry
 from geometry_msgs.msg import Twist
 from enum import IntEnum
 import math
+
 # import threading
 import rclpy
 
@@ -15,7 +16,7 @@ class Angle(IntEnum):
 
 
 class Position:
-    def __init__(x: float, y: float)
+    def __init__(self, x: float, y: float):
         self.x = x
         self.y = y
 
@@ -40,7 +41,7 @@ class SimpleOperator(Node):
 
         # Twist
         self.__twist = Twist()
-        
+
         # initial position
         self.__pos_init: Position = None
 
@@ -79,11 +80,6 @@ class SimpleOperator(Node):
             Position: position of the robot in meters
         """
 
-        # return (
-        #     self.__pos_init.x - self.__odom.pose.pose.position.x, 
-        #     self.__pos_init.y - self.__odom.pose.pose.position.y
-        # )
-        
         return Position(
             self.__pos_init.x - self.__odom.pose.pose.position.x,
             self.__pos_init.y - self.__odom.pose.pose.position.y,
@@ -197,13 +193,18 @@ class SimpleOperator(Node):
         """
 
         speed = distance / duration
-        self.set_speed(speed)
-        time.sleep(duration)
+
+        start_x, start_y = self.pos
+
+        while True:
+            self.set_speed(speed)
+            x, y = self.pos
+            distance_moved = math.sqrt((x - start_x) ** 2 + (y - start_y) ** 2)
+
+            if distance_moved >= distance:
+                break
+
         self.stop()
-
-        self._logger.info(f"Moved forward by: {distance} m")
-
-        return self
 
     def rotate_by(self, degree: int, duration: float) -> "SimpleOperator":
         """rotate_by
@@ -238,7 +239,7 @@ class SimpleOperator(Node):
         self.__twist.angular.z = 0.0
 
         self.__pub.publish(self.__twist)
-        
+
     # others
 
     def __validate_speed(self, speed: float) -> float:
