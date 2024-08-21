@@ -1,20 +1,29 @@
 import rclpy
+import time
 from simple_robot_operator import SimpleOperator, Angle
 
+
+class SampleOperator(SimpleOperator):
+    def __init__(self, name: str = "operator_node"):
+        super().__init__("operator_node")
+
+    def operate(self):
+        self.forward(0.2, 5.0)
+        time.sleep(3)
+        self.forward(-0.2, 5.0)
 
 def main():
     try:
         rclpy.init()
 
-        operator = SimpleOperator("operator_node")
+        operator = SampleOperator("operator_node")
 
-        # Do not use rclpy.spin() in a script
-        # rclpy.spin(operator)
+        rclpy.spin(operator)
 
         # basic methods
 
         # operator.forward(0.1, 3.0)  # move forward 0.1 m/s for 3 seconds
-        operator.forward(-0.1, 5.0)  # move backward 0.1 m/s for 5 seconds
+        # operator.forward(-0.1, 5.0)  # move backward 0.1 m/s for 5 seconds
 
         # operator.rotate_by(-90, 5.0)  # rotate left 90 degrees for 5 seconds
         # operator.rotate_by(Angle.RIGHT, 3.0)  # rotate right (90 degrees) for 3 seconds
