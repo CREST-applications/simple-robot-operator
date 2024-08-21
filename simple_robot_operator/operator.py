@@ -96,11 +96,13 @@ class SimpleOperator(Node):
         return self.__odom.twist.twist.linear.x
 
     @property
-    def angle(self) -> float:
-        """angle
+    def angle_velocity(self) -> float:
+        """angle_velocity
 
         ~~Angle of the robot in **degrees**.~~
         ~~The value is based on the initial position of the robot.~~
+
+        The angle velocity of the robot in **degrees**.
 
         Returns:
             float: Angle of the robot in **degrees**
@@ -123,7 +125,6 @@ class SimpleOperator(Node):
         speed = self.__validate_speed(speed)
         self.__twist.linear.x = float(speed)
 
-        print(self.__twist)
         self.__pub.publish(self.__twist)
         self._logger.info(f"Set speed to: {speed} m/s")
 
@@ -172,7 +173,7 @@ class SimpleOperator(Node):
             SimpleOperator: Instance of the SimpleOperator
         """
 
-        current = self.angle
+        current = self.angle_velocity
         self.set_angle_velocity(current + degree)
 
         return self
@@ -199,12 +200,14 @@ class SimpleOperator(Node):
 
         while True:
             self.set_speed(speed)
+
             current = self.pos
             distance_moved = math.sqrt(
                 (current.x - start_pos.x) ** 2 + (current.y - start_pos.y) ** 2
             )
 
-            if distance_moved >= distance:
+            if math.fabs(distance) <= distance_moved:
+                print("break")
                 break
 
         self.stop()
@@ -224,6 +227,7 @@ class SimpleOperator(Node):
         """
 
         velocity = degree / duration
+
         self.set_angle_velocity(velocity)
         time.sleep(duration)
         self.stop()
